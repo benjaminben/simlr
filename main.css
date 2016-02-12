@@ -12,8 +12,6 @@ body {
 .section {
   width: 100%;
   height: 100vh;
-  border: 1px solid black;
-  box-sizing: border-box;
   display: flex;
   position: relative
 }
@@ -52,13 +50,16 @@ body {
 #joinUs {
   margin: auto;
   margin-right: 3%;
-  text-align: center;
   border: 1px solid white;
+}
+
+.button {
+  text-align: center;
   padding: 5px 30px;
   border-radius: 20px;
   font-weight: 700;
+  cursor: pointer;
 }
-
 
 #tagSection {
   background: #4657f2;
@@ -143,6 +144,65 @@ mark {
   font-weight: 700;
   font-size: 1.5em;
   padding-right: 5%
+}
+
+#geoSection {
+  flex-flow: column
+}
+
+#geoContainer {
+  display: flex;
+  width: 100%;
+  height: 90%;
+}
+
+.geo {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  transition: all 0.5s ease;
+  color: #ffed1d;
+}
+
+.geo:hover {
+  background: #ffed1d;
+  color: #4657f2;
+}
+
+.geo p, .geo h1 {
+  text-align: center;
+  font-weight: 900;
+  margin: 5px auto;
+  padding: 0;
+}
+
+.geoButton {
+  color: #4657f2;
+  border: 1px solid #4657f2;
+  max-width: 50px;
+  margin: 10px auto;
+  transition: all 0.5s ease;
+}
+
+.geoButton:hover {
+  background: #4657f2;
+  color: white;
+}
+
+#footer {
+  background: #4657f2;
+  height: 10%;
+  display: flex;
+  flex-flow: row
+}
+
+#footer p {
+  margin: auto;
+  text-align: center
+  width: 100%;
+  font-weight: 700
 }
 
 .section-placeholder {
