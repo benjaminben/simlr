@@ -79,7 +79,7 @@ body {
   text-align: center;
   font-weight: 900;
   width: 100%;
-  font-size: 7vw;
+  font-size: 3em;
 }
 
 #tag {
@@ -90,6 +90,59 @@ body {
 mark {
   background: none;
   color: #ffed1d;
+}
+
+
+#aboutSection {
+  justify-content: space-between;
+}
+
+.about {
+  height: 100%;
+  width: 50%;
+  color: black;
+  display: flex;
+}
+
+#aboutGold {
+  background: #ffed1d;
+  width: 50%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1
+}
+
+/*.about p {
+  margin: auto;
+  width: 80%;
+  padding: 0;
+}*/
+
+#aboutSection p {
+  margin: auto 0;
+  width: 40%;
+}
+
+#aboutBrief {
+  color: white;
+  font-weight: 900;
+  font-size: 3em;
+  color: white;
+  padding-left: 5%;
+}
+
+#phoneSpacer {
+  width: 50%;
+}
+
+#aboutLong {
+  color: #4657f2;
+  font-weight: 700;
+  font-size: 1.5em;
+  padding-right: 5%
 }
 
 .section-placeholder {
