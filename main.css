@@ -5,6 +5,8 @@ body {
   bottom: 0;
   left: 0;
   margin: 0;
+  color: white;
+  font-family: "proxima-nova";
 }
 
 .section {
@@ -13,6 +15,47 @@ body {
   border: 1px solid black;
   box-sizing: border-box;
   display: flex;
+}
+
+#titleSection {
+  background: #4657f2;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+#logoEtc {
+  margin: auto;
+}
+
+#icon {
+  width: 150px;
+  height: auto;
+}
+
+#mouseBox {
+  display: flex;
+  flex-flow: column;
+}
+
+#mouse {
+  margin: auto;
+  padding: 10px
+}
+
+#joinUsBar {
+  position: relative;
+  height: 10%;
+  display: flex;
+}
+
+#joinUs {
+  margin: auto;
+  margin-right: 3%;
+  text-align: center;
+  border: 1px solid white;
+  padding: 5px 30px;
+  border-radius: 20px;
+  font-weight: 700;
 }
 
 .section-placeholder {
