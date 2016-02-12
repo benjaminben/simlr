@@ -15,6 +15,7 @@ body {
   border: 1px solid black;
   box-sizing: border-box;
   display: flex;
+  position: relative
 }
 
 #titleSection {
@@ -56,6 +57,39 @@ body {
   padding: 5px 30px;
   border-radius: 20px;
   font-weight: 700;
+}
+
+
+#tagSection {
+  background: #4657f2;
+  height: calc(100vh * 1.5);
+  flex-flow: column;
+  justify-content: space-around;
+}
+
+#map {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 70%;
+  z-index: 0;
+}
+
+#tagSection h1 {
+  text-align: center;
+  font-weight: 900;
+  width: 100%;
+  font-size: 7vw;
+}
+
+#tag {
+  position: relative;
+  z-index: 1
+}
+
+mark {
+  background: none;
+  color: #ffed1d;
 }
 
 .section-placeholder {
