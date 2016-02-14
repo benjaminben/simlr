@@ -59,74 +59,59 @@ function update() {
 
     }
 
-    // else {
-    //     $("#logoEtc").css({
-    //         position: "absolute";
-    //     })
-    // }
-
     $("#tooFar").css("opacity",
         1 - ( scrollTop > 1100 ? ((scrollTop-1100)/100) : 0 )
     )
 
-    if ( scrollTop > 1200 ) {
 
+    if ( isScrolledIn($("#aboutSection"), $("#joinUs")) || isScrolledIn($("#geoSection"), $("#joinUs")) ) {
+        $("#joinUs").css({
+            "color": "#4657f2",
+            "border": "1px solid #4657f2",
+            "background": "white"
+        }).on("mouseover", function() {
+            $("#joinUs").css({
+                "color": "white",
+                "border": "1px solid white",
+                "background": "#4657f2"
+            })
+        }).on("mouseleave", function() {
+            $("#joinUs").css({
+                "color": "#4657f2",
+                "border": "1px solid #4657f2",
+                "background": "white"
+            })
+        });
+    } else {
+        $("#joinUs").css({
+            "color": "white",
+            "border": "1px solid white",
+            "background": "#4657f2"
+        }).on("mouseover", function() {
+            $("#joinUs").css({
+                "color": "#4657f2",
+                "border": "1px solid #4657f2",
+                "background": "white"
+            })
+        }).on("mouseleave", function() {
+            $("#joinUs").css({
+                "color": "white",
+                "border": "1px solid white",
+                "background": "#4657f2"
+            })
+        });;
     }
-
-    // if (scrollTop > 1200) {
-    //     console.log((scrollTop-1200)/100)
-    // }
-
-    console.log(scrollTop)
-    // console.log( $("#tooFar") )
-    // console.log( $("#tooFar").offset().top )
-
-
-    // $("#joinUs").css("opacity",
-    //     1 - scrollTop / 100
-    // )
-
-    // if ( scrollTop > 100 ) {
-    //     $("#icon").css({
-    //         "position": "fixed",
-    //         "top": "110px"
-    //     })
-    // }
-
-    // if ( isScrolledIn($("#tooFar")) ) {
-    //     $("#tooFar").animate({
-    //         opacity: 1
-    //     }, 500)
-    // }
-
-    // console.log($("#tooFar").offset().top, scrollTop)
-
-    // if ( scrollTop > $("#tooFar").offset().top / 1.5 ) {
-    //     // $("#tooFar").animate({opacity: 0}, 500);
-    //     $("#tooFar").css("visibility", "hidden");
-
-    // }
-
-    // if ( isScrolledIn($("#aboutSection")) ) {
-    //     console.log("lawg");
-
-    // }
-
-    // if ( isScrolledIn($("#aboutLong")) ) {
-    //     $("#phone").animate({
-    //         top: 55 + "%"
-    //     }, 500)
-    // }
 
 }
 
-function isScrolledIn(thing) {
-  var thingTop = thing.offset().top;
-  var thingBottom = thing.offset().top + thing.height();
-  var winTop = window.pageYOffset;
-  var winBottom = window.pageYOffset+window.innerHeight;
+function isScrolledIn(biggerThing, littleThing) {
 
-  if (winTop < thingTop && winBottom > thingBottom) {
+  var littleThingTop = littleThing.offset().top;
+  var littleThingBottom = littleThing.offset().top + littleThing.height();
+  var biggerThingTop = biggerThing.offset().top;
+  var biggerThingBottom = biggerThing.offset().top+biggerThing.height();
+
+  if (biggerThingTop < littleThingTop && biggerThingBottom > littleThingBottom) {
     return true
   } else {
     return false

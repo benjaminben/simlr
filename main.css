@@ -60,6 +60,8 @@ body {
   position: fixed;
   opacity: 0;
   z-index: 1;
+  background: #4657f2;;
+  transition: all 0.2s ease;
 }
 
 .button {
@@ -172,7 +174,7 @@ mark {
 
 #phone {
   position: absolute;
-  top: 100%;
+  top: 50%;
 }
 
 #phoneSection {
