@@ -60,17 +60,22 @@ function update() {
 
     $("#aboutGold").css("right",
          scrollTop > 2500 ? (50 + "%") : (100 + "%")
+    );
+
+    $("#phone").css("top",
+        scrollTop > 2900 ? (70 + "%") : (100 + "%")
     )
+
+    // $("#aboutLong").css({
+    //     "opacity": scrollTop > 2600 ? 1 : 0,
+    //     "padding-right": scrollTop > 2600 ? (5 + "%") : (4 + "%")
+    // })
 
     console.log(scrollTop)
 
     $("#tooFar").css("opacity",
         1 - ( scrollTop > 1100 ? ((scrollTop-1100)/100) : 0 )
     )
-
-    if ( isScrolledIntoWindow($("#aboutLong")) ) {
-        console.log("some ish")
-    }
 
     if ( isScrolledIn($("#aboutSection"), $("#joinUs")) ) {
         $("#joinUs").css({

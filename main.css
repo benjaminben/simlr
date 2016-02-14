@@ -145,6 +145,7 @@ mark {
   display: flex;
   justify-content: center;
   z-index: 1;
+  transition: all 0.5 ease;
 }
 
 #aboutBrief {
@@ -161,14 +162,16 @@ mark {
   color: #4657f2;
   font-weight: 700;
   font-size: 1.5em;
-  padding: 0 5%
+  padding: 0 5%;
+  transition: all 0.5 ease;
 }
 
 #phone {
   position: absolute;
-  margin-top: 70%;
+  top: 100%;
   transform: translate(-50%, 0);
   z-index: 0;
+  transition: all 0.5s ease;
 }
 
 #phoneSection {
