@@ -59,7 +59,7 @@ body {
   border: 1px solid white;
   position: fixed;
   opacity: 0;
-  z-index: 1;
+  z-index: 2;
   background: #4657f2;;
   transition: all 0.2s ease;
 }
@@ -86,17 +86,12 @@ body {
   justify-content: space-around;
 }
 
-#tooFar {
-  /*opacity: 0;*/
-}
-
 #map {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 70%;
   z-index: 0;
-
 }
 
 #tagSection h1 {
@@ -123,10 +118,10 @@ mark {
   height: 700px;
   display: flex;
   position: relative;
+  overflow: hidden;
 }
 
 .about {
-  /*height: 100%;*/
   width: 50%;
   color: black;
   display: flex;
@@ -139,7 +134,8 @@ mark {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0;
+  right: 100;
+  transition: all 0.5s ease;
 }
 
 #aboutSection p {
@@ -148,6 +144,7 @@ mark {
   overflow: hidden;
   display: flex;
   justify-content: center;
+  z-index: 1;
 }
 
 #aboutBrief {
@@ -167,14 +164,11 @@ mark {
   padding: 0 5%
 }
 
-/*#phoneSpacer {
-  width: 50%;
-  position: relative;
-}*/
-
 #phone {
   position: absolute;
-  top: 50%;
+  margin-top: 70%;
+  transform: translate(-50%, 0);
+  z-index: 0;
 }
 
 #phoneSection {
@@ -188,6 +182,7 @@ mark {
 #phoneSection h1 {
   margin: auto;
   text-align: center;
+  font-size: 3em;
 }
 
 #geoSection {

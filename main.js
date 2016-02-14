@@ -56,13 +56,21 @@ function update() {
             "position": "absolute",
             "top": 2330
         });
-
     }
+
+    $("#aboutGold").css("right",
+         scrollTop > 2500 ? (50 + "%") : (100 + "%")
+    )
+
+    console.log(scrollTop)
 
     $("#tooFar").css("opacity",
         1 - ( scrollTop > 1100 ? ((scrollTop-1100)/100) : 0 )
     )
 
+    if ( isScrolledIntoWindow($("#aboutLong")) ) {
+        console.log("some ish")
+    }
 
     if ( isScrolledIn($("#aboutSection"), $("#joinUs")) ) {
         $("#joinUs").css({
@@ -82,8 +90,7 @@ function update() {
                 "background": "white"
             })
         });
-    }
-     else if ( isScrolledIn($("#geoSection"), $("#joinUs")) ) {
+    } else if ( isScrolledIn($("#geoSection"), $("#joinUs")) ) {
         $("#joinUs").css({
             "color": "#4657f2",
             "border": "1px solid #4657f2",
@@ -101,8 +108,7 @@ function update() {
                 "background": "rgba(0, 0, 0, 0)"
             })
         });
-    }
-    else {
+    } else {
         $("#joinUs").css({
             "color": "white",
             "border": "1px solid white",
@@ -132,6 +138,19 @@ function isScrolledIn(biggerThing, littleThing) {
   var biggerThingBottom = biggerThing.offset().top+biggerThing.height();
 
   if (biggerThingTop < littleThingTop && biggerThingBottom > littleThingBottom) {
+    return true
+  } else {
+    return false
+  }
+}
+
+function isScrolledIntoWindow(thing) {
+  var thingTop = thing.offset().top;
+  var thingBottom = thing.offset().top + thing.height();
+  var winTop = window.pageYOffset;
+  var winBottom = window.pageYOffset+window.innerHeight;
+
+  if (winTop < thingTop && winBottom > thingBottom) {
     return true
   } else {
     return false
