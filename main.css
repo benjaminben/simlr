@@ -141,7 +141,6 @@ mark {
 #aboutSection p {
   margin: auto 0;
   width: 40%;
-  overflow: hidden;
   display: flex;
   justify-content: center;
   z-index: 1;
