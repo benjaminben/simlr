@@ -23,6 +23,7 @@ body {
   width: 100vw;
   height: 100vh;
   position: fixed;
+  z-index: 10
 }
 
 #logoEtc {
@@ -94,7 +95,6 @@ body {
 #tagSection {
   height: 1600px;
   position: relative;
-  z-index: 0;
 }
 
 #tagContent {
@@ -118,6 +118,7 @@ body {
   font-weight: 900;
   width: 100%;
   font-size: 3em;
+  z-index: 20;
 }
 
 #tag {
