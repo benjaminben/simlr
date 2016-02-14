@@ -1,1 +1,1 @@
-<a target="_blank" href="benjaminben.github.io/simlr">landing page for Simlr app</a>
+<a target="_blank" href="http://benjaminben.github.io/simlr/">landing page for Simlr app</a>
