@@ -64,7 +64,7 @@ function update() {
     )
 
 
-    if ( isScrolledIn($("#aboutSection"), $("#joinUs")) || isScrolledIn($("#geoSection"), $("#joinUs")) ) {
+    if ( isScrolledIn($("#aboutSection"), $("#joinUs")) ) {
         $("#joinUs").css({
             "color": "#4657f2",
             "border": "1px solid #4657f2",
@@ -82,7 +82,27 @@ function update() {
                 "background": "white"
             })
         });
-    } else {
+    }
+     else if ( isScrolledIn($("#geoSection"), $("#joinUs")) ) {
+        $("#joinUs").css({
+            "color": "#4657f2",
+            "border": "1px solid #4657f2",
+            "background": "rgba(0, 0, 0, 0)"
+        }).on("mouseover", function() {
+            $("#joinUs").css({
+                "color": "white",
+                "border": "1px solid white",
+                "background": "#4657f2"
+            })
+        }).on("mouseleave", function() {
+            $("#joinUs").css({
+                "color": "#4657f2",
+                "border": "1px solid #4657f2",
+                "background": "rgba(0, 0, 0, 0)"
+            })
+        });
+    }
+    else {
         $("#joinUs").css({
             "color": "white",
             "border": "1px solid white",
