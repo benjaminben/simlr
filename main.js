@@ -39,14 +39,21 @@ function update() {
         1 - scrollTop / 100
     )
 
-    if ( scrollTop < 2020 ) {
+    if ( scrollTop < 1600 ) {
+        $("#logoEtc").css({
+            "width": 150 + ( scrollTop > 100 ? (scrollTop-100) : 0 ) + "px"
+        })
+        $("#icon").css({
+            "bottom": ( scrollTop > 100 && scrollTop < 600 ? (scrollTop-100) : $("#icon").css("bottom") ) + "px"
+        })
+    } else if ( scrollTop < 2000 ) {
         $("#logoEtc").css("width",
-            150 + ( scrollTop > 100 ? (scrollTop-100) : 0 ) + "px"
-        )
-    } else if ( scrollTop < 2330 ) {
-        $("#logoEtc").css("width",
-            420 - ( scrollTop - 2020 ) + "px"
-        )
+            $("#logoEtc").width() - ( scrollTop - 1600 ) + "px"
+        );
+        $("#icon").css({
+            "top": ( scrollTop > 100 && scrollTop < 600 ? (scrollTop-100) : $("#icon").css("top") ) + "px",
+            "bottom": 0
+        });
         $("#titleContent").css({
             "position": "fixed",
             "top": ""
@@ -54,7 +61,7 @@ function update() {
     } else {
         $("#titleContent").css({
             "position": "absolute",
-            "top": 2330
+            "top": 2000
         });
     }
 
@@ -62,19 +69,24 @@ function update() {
          scrollTop > 2500 ? (50 + "%") : (100 + "%")
     );
 
+    $("#aboutBrief").css({
+        "opacity": scrollTop > 2650 ? 1 : 0,
+        "margin-left": scrollTop > 2650 ? 0 + "px" : -20 + "px"
+    })
+
+    $("#aboutLong").css({
+        "opacity": scrollTop > 2800 ? 1 : 0,
+    })
+
     $("#phone").css("top",
         scrollTop > 2900 ? (70 + "%") : (100 + "%")
     )
 
-    // $("#aboutLong").css({
-    //     "opacity": scrollTop > 2600 ? 1 : 0,
-    //     "padding-right": scrollTop > 2600 ? (5 + "%") : (4 + "%")
-    // })
 
     console.log(scrollTop)
 
     $("#tooFar").css("opacity",
-        1 - ( scrollTop > 1100 ? ((scrollTop-1100)/100) : 0 )
+        1 - ( scrollTop > 1400 ? ((scrollTop-1400)/100) : 0 )
     )
 
     if ( isScrolledIn($("#aboutSection"), $("#joinUs")) ) {
