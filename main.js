@@ -39,34 +39,34 @@ function update() {
         1 - scrollTop / 100
     )
 
-    if ( scrollTop < 1600 ) {
+    if ( scrollTop < 2000 ) {
         $("#logoEtc").css({
-            "width": 150 + ( scrollTop > 100 ? (scrollTop-100) : 0 ) + "px"
+            "width": 150 + ( scrollTop > 100 ? (scrollTop-100) : 0 ) + "px",
+            "max-width": 80 + "vw"
         })
         $("#icon").css({
-            "bottom": ( scrollTop > 100 && scrollTop < 600 ? (scrollTop-100) : $("#icon").css("bottom") ) + "px"
+            "margin-top": ( scrollTop > 100 ? -(scrollTop - 100) : 0 ) + "px"
         })
-    } else if ( scrollTop < 2000 ) {
-        $("#logoEtc").css("width",
-            $("#logoEtc").width() - ( scrollTop - 1600 ) + "px"
-        );
-        $("#icon").css({
-            "top": ( scrollTop > 100 && scrollTop < 600 ? (scrollTop-100) : $("#icon").css("top") ) + "px",
-            "bottom": 0
+    } else if ( scrollTop < 2820 ) {
+        $("#logoEtc").css({
+            "width": 80 - ( (scrollTop - 2000) / 13 ) + "vw"
         });
         $("#titleContent").css({
             "position": "fixed",
             "top": ""
         });
+        $("#icon").css({
+            "margin-top": -1900 + scrollTop -2000 + "px"
+        })
     } else {
         $("#titleContent").css({
             "position": "absolute",
-            "top": 2000
+            "top": 2820
         });
     }
 
     $("#aboutGold").css("right",
-         scrollTop > 2500 ? (50 + "%") : (100 + "%")
+         scrollTop > 2500 ? (50 + "%") : (0 + "%")
     );
 
     $("#aboutBrief").css({
@@ -92,26 +92,24 @@ function update() {
     if ( isScrolledIn($("#aboutSection"), $("#joinUs")) ) {
         $("#joinUs").css({
             "color": "#4657f2",
-            "border": "1px solid #4657f2",
-            "background": "white"
+            "border": "1px solid #4657f2"
         }).on("mouseover", function() {
             $("#joinUs").css({
                 "color": "white",
-                "border": "1px solid white",
+                "border": "1px solid #4657f2",
                 "background": "#4657f2"
             })
         }).on("mouseleave", function() {
             $("#joinUs").css({
                 "color": "#4657f2",
                 "border": "1px solid #4657f2",
-                "background": "white"
+                "background": "rgba(0, 0, 0, 0)"
             })
         });
     } else if ( isScrolledIn($("#geoSection"), $("#joinUs")) ) {
         $("#joinUs").css({
             "color": "#4657f2",
-            "border": "1px solid #4657f2",
-            "background": "rgba(0, 0, 0, 0)"
+            "border": "1px solid #4657f2"
         }).on("mouseover", function() {
             $("#joinUs").css({
                 "color": "white",
@@ -128,19 +126,18 @@ function update() {
     } else {
         $("#joinUs").css({
             "color": "white",
-            "border": "1px solid white",
-            "background": "#4657f2"
+            "border": "1px solid white"
         }).on("mouseover", function() {
             $("#joinUs").css({
                 "color": "#4657f2",
-                "border": "1px solid #4657f2",
+                "border": "1px solid white",
                 "background": "white"
             })
         }).on("mouseleave", function() {
             $("#joinUs").css({
                 "color": "white",
                 "border": "1px solid white",
-                "background": "#4657f2"
+                "background": "rgba(70,87,242,0)"
             })
         });;
     }
