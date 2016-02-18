@@ -21,11 +21,11 @@ var ogPinWidth = 150;
 
 window.addEventListener("scroll", function() {
     update();
-
 });
 
 function update() {
     var scrollTop = $(window).scrollTop();
+    var scrollBottom = $(window).scrollTop() + $(window).height();
 
     $("#joinUs").css("opacity",
         0 + ( scrollTop > 100 ? ((scrollTop - 100) / 100) : 0 )
@@ -39,14 +39,15 @@ function update() {
         1 - scrollTop / 100
     )
 
-    // console.log( "icon top:" + $("#icon").offset().top,  "tag bottom: " + $("#tag").offset().top + $("#tag").height());
-    // console.log( $("#icon").offset(), $("#tag").offset().top + $("#tag").height() )
     var afterTag1 = $("#tooFar").offset().top + $("#tooFar").height();
     var afterTag2 = $("#tag").offset().top + $("#tag").height();
-    var iconPassedTag1 = $("#icon").offset().top >= ($("#tooFar").offset().top + $("#tooFar").height());
-    var iconPassedTag2 = $("#icon").offset().top >= ($("#tag").offset().top + $("#tag").height());
 
-    // console.log(iconPassedTag1, iconPassedTag2)
+    var iconPassedTag1 = $("#icon").offset().top >=
+                        ($("#tooFar").offset().top + $("#tooFar").height());
+    var iconPassedTag2 = $("#icon").offset().top >=
+                        ($("#tag").offset().top + $("#tag").height());
+
+    console.log(iconPassedTag2)
 
     if ( scrollTop < $("#tooFar").offset().top ) {
         $("#titleContent").css({
@@ -58,6 +59,8 @@ function update() {
         })
     }
     else if ( scrollTop < $("#tag").offset().top && !iconPassedTag2 ) {
+        // console.log( scrollTop-($("#tooFar").offset().top) )
+        // console.log( -($("#icon").height()) + (scrollTop-($("#tooFar").offset().top)) )
         $("#titleContent").css({
             "position": "fixed",
             "top": -($("#icon").height()) + (scrollTop-($("#tag").offset().top))
@@ -69,12 +72,19 @@ function update() {
     else {
         $("#titleContent").css({
             "position": "absolute",
-            "top": afterTag2 + 10 + "px"
+            "top": afterTag2 + "px"
         })
     }
+    console.log( afterTag2, $("#titleContent").css("top") )
+    // console.log( scrollBottom, $("#tooFar").offset().top )
 
+    // console.log( ($("#icon").offset().top + $("#icon").height()) < $("#tooFar").offset().top )
 
-
+    if ( scrollBottom > $("#tooFar").offset().top ) {
+        $("#tooFar").css({
+            "opacity": 0 + (scrollBottom - $("#tooFar").offset().top)/100
+        })
+    }
 
     $("#aboutGold").css("right",
          scrollTop > 2500 ? (50 + "%") : (0 + "%")
@@ -93,12 +103,6 @@ function update() {
         scrollTop > 2900 ? (70 + "%") : (100 + "%")
     )
 
-
-    // console.log(scrollTop)
-
-    // $("#tooFar").css("opacity",
-    //     1 - ( scrollTop > 1400 ? ((scrollTop-1400)/100) : 0 )
-    // )
 
     if ( isScrolledIn($("#aboutSection"), $("#joinUs")) ) {
         $("#joinUs").css({
@@ -162,7 +166,7 @@ function isScrolledIn(biggerThing, littleThing) {
   var biggerThingTop = biggerThing.offset().top;
   var biggerThingBottom = biggerThing.offset().top+biggerThing.height();
 
-  if (biggerThingTop < littleThingTop && biggerThingBottom > littleThingBottom) {
+  if (biggerThingTop < littleThingTop && biggerThingBottom > littleThingBottom){
     return true
   } else {
     return false
@@ -181,54 +185,3 @@ function isScrolledIntoWindow(thing) {
     return false
   }
 }
-
-    // // if ( scrollTop < 2000 ) {
-    // //     $("#logoEtc").css({
-    // //         "width": 150 + ( scrollTop > 100 ? (scrollTop - 100)  : 0 ) + "px",
-    // //     })
-    // //     $("#titleContent").css({
-    // //         "top": scrollTop > 100 && scrollTop < 700 ? -(scrollTop - 100) : ( scrollTop < 100 ? 0 : -600 ),
-    // //         "bottom": scrollTop > 100 && scrollTop < 700 ? (scrollTop - 100) : ( scrollTop < 100 ? 0 : 600 )
-    // //     })
-    // // } else if ( !iconPassedTag ) {
-    // //     $("#logoEtc").css({
-    // //         "width": 600 - ( (scrollTop - 2000) )
-    // //     });
-    // //     $("#titleContent").css({
-    // //         "position": "fixed",
-    // //         "top": -600 + ( (scrollTop - 2000) ),
-    // //         "bottom": 600 - ( (scrollTop - 2000) )
-    // //     });
-    // // } else if (iconPassedTag) {
-    // //     $("#titleContent").css({
-    // //         "position": "absolute",
-    // //         "top": $("#tag").offset().top + $("#tag").height(),
-    // //         "bottom": 0
-    // //     });
-    // // }
-    // if ( !iconPassedTag1 ) {
-    //     $("#logoEtc").css({
-    //         "width": 150 + ( scrollTop > 100 ? (scrollTop - 100)  : 0 ),
-    //     })
-    // } else {
-    //     $("#logoEtc").css({
-    //         "width": 600 - ( (scrollTop - 2000) )
-    //     });
-    // }
-
-    // if ( !iconPassedTag2 ) {
-    //     $("#titleContent").css({
-    //         "top": scrollTop > 100 && scrollTop < 600 ? -(scrollTop - 100) : ( scrollTop < 100 ? 0 : -600 ),
-    //         "bottom": scrollTop > 100 && scrollTop < 600 ? (scrollTop - 100) : ( scrollTop < 100 ? 0 : 600 ),
-    //         "position": "fixed"
-    //     })
-    // }
-    // else {
-    //     $("#titleContent").css({
-    //         "top": $("#tag").offset().top + $("#tag").height(),
-    //         "bottom": "",
-    //         "position": "absolute"
-    //     });
-    // }
-
-    // // console.log( iconPassedTag2 )
