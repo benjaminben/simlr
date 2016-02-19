@@ -47,44 +47,31 @@ function update() {
     var iconPassedTag2 = $("#icon").offset().top >=
                         ($("#tag").offset().top + $("#tag").height());
 
-    console.log(iconPassedTag2)
-
-    if ( scrollTop < $("#tooFar").offset().top ) {
-        $("#titleContent").css({
-            "position": "fixed",
-            "top": scrollTop > 100 ? -(scrollTop-100) : 0
-        })
+    if ( scrollTop < 1600 ) {
         $("#logoEtc").css({
-            "width": 150 + ( scrollTop > 100 ? (scrollTop-100) : 0 )
+            "width": 150 + ( scrollTop > 100 ? (scrollTop-100) : 0 ) + "px"
         })
-    }
-    else if ( scrollTop < $("#tag").offset().top && !iconPassedTag2 ) {
-        // console.log( scrollTop-($("#tooFar").offset().top) )
-        // console.log( -($("#icon").height()) + (scrollTop-($("#tooFar").offset().top)) )
+        $("#titleContent").css({
+            "top": scrollTop > 100 ? -(scrollTop-100)/3 : 0
+        })
+    } else if ( scrollTop < 2000 ) {
+        $("#logoEtc").css("width",
+            500 - ( scrollTop - 1600 )*1.2 + "px"
+        )
         $("#titleContent").css({
             "position": "fixed",
-            "top": -($("#icon").height()) + (scrollTop-($("#tag").offset().top))
+            "top": -(500) + (scrollTop-1600)*3
         });
-        $("#logoEtc").css({
-            "width": 600 - (scrollTop-afterTag1)
-        })
-    }
-    else {
+    } else {
         $("#titleContent").css({
             "position": "absolute",
-            "top": afterTag2 + "px"
-        })
+            "top": 2730
+        });
     }
-    console.log( afterTag2, $("#titleContent").css("top") )
-    // console.log( scrollBottom, $("#tooFar").offset().top )
 
-    // console.log( ($("#icon").offset().top + $("#icon").height()) < $("#tooFar").offset().top )
-
-    if ( scrollBottom > $("#tooFar").offset().top ) {
-        $("#tooFar").css({
-            "opacity": 0 + (scrollBottom - $("#tooFar").offset().top)/100
-        })
-    }
+    $("#tooFar").css("opacity",
+        1 - ( scrollTop > 1500 ? ((scrollTop-1500)/100) : 0 )
+    )
 
     $("#aboutGold").css("right",
          scrollTop > 2500 ? (50 + "%") : (0 + "%")
