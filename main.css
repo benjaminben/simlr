@@ -96,14 +96,14 @@ body {
 }
 
 #tagSection {
-  height: 1600px;
+  height: 1800px;
   position: relative;
+  overflow: hidden
 }
 
 #tagContent {
   width: 100vw;
   height: 100%;
-  display: flex;
   flex-flow: column;
   justify-content: space-around;
 }
@@ -112,7 +112,7 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 70%;
+  width: 123.5%;
   z-index: 0;
 }
 
@@ -122,11 +122,16 @@ body {
   width: 100%;
   font-size: 3em;
   z-index: 20;
+  position: absolute;
+}
+
+#tooFar {
+  top: 200px;
 }
 
 #tag {
-  position: relative;
-  z-index: 1
+  z-index: 1;
+  bottom: 500px;
 }
 
 mark {
@@ -196,7 +201,7 @@ mark {
 }
 
 #phoneSection {
-  height: 40vh;
+  height: 500px;
   background: #4657f2;
   min-height: 200px;
   max-height: 500px;

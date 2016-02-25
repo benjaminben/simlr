@@ -62,10 +62,13 @@ function update() {
             "position": "fixed",
             "top": -(500) + (scrollTop-1600)*3
         });
+        $("#tag").css({
+            "opacity": 0 + (scrollTop-1890)/100
+        })
     } else {
         $("#titleContent").css({
             "position": "absolute",
-            "top": 2730
+            "top": 2630
         });
     }
 
@@ -74,20 +77,20 @@ function update() {
     )
 
     $("#aboutGold").css("right",
-         scrollTop > 2500 ? (50 + "%") : (0 + "%")
+         scrollTop > 2700 ? (50 + "%") : (0 + "%")
     );
 
     $("#aboutBrief").css({
-        "opacity": scrollTop > 2650 ? 1 : 0,
-        "margin-left": scrollTop > 2650 ? 0 + "px" : -20 + "px"
+        "opacity": scrollTop > 2850 ? 1 : 0,
+        "margin-left": scrollTop > 2850 ? 0 + "px" : -20 + "px"
     })
 
     $("#aboutLong").css({
-        "opacity": scrollTop > 2800 ? 1 : 0,
+        "opacity": scrollTop > 3000 ? 1 : 0,
     })
 
     $("#phone").css("top",
-        scrollTop > 2900 ? (70 + "%") : (100 + "%")
+        scrollTop > 3100 ? (70 + "%") : (100 + "%")
     )
 
 
