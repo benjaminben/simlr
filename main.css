@@ -132,6 +132,7 @@ body {
 #tag {
   z-index: 1;
   bottom: 500px;
+  opacity: 0;
 }
 
 mark {
