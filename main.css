@@ -87,7 +87,90 @@ body {
   transition: all 0.2s ease;
 }
 
-.button {
+#popOver {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 6000;
+  background-color: #ffed1d;
+  color: #4657f2;
+  display: none;
+  text-align: center;
+}
+#popOver.show {
+  display: table;
+  animation: popIn 0.66s ease;
+  -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+  animation-fill-mode: forwards;
+}
+#popOver.hide {
+  display: table;
+  animation: popOff 0.66s ease;
+  -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+  animation-fill-mode: forwards;
+}
+#popOver .row {
+  display: table-row;
+}
+#popOver .row.head {
+  height: 80%;
+}
+#popOver .text {
+  display: table-cell;
+}
+#popOver .text.head {
+  vertical-align: middle;
+  font-size: 2.33em;
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+#popOver .text.head h1 {
+  max-width: 600px;
+  margin: 0 auto;
+}
+#popOver .text.tail h2 {
+  font-size: 1.33em;
+  font-weight: 700;
+  margin: 0;
+}
+#popOver .text.tail p {
+  font-size: 1em;
+  margin: 0;
+}
+#popOver .text.tail p:first-of-type {
+  margin: 0 0 1em;
+}
+#popOver svg.escape {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+#popOver svg.escape path {
+  stroke-linecap: round;
+}
+@keyframes popIn {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: 0%;
+  }
+}
+@keyframes popOff {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: -100%;
+  }
+}
+
+.button.oval {
   text-align: center;
   padding: 5px 30px;
   border-radius: 20px;
@@ -285,4 +368,17 @@ mark {
   text-align: center;
   width: 100%;
   font-weight: 700
+}
+
+@media screen and (max-width: 768px) {
+  #popOver .text.head {
+    font-size: 1.66em;
+  }
+  #popOver .text.head h1 {
+    max-width: 400px;
+  }
+  #popOver svg.escape {
+    width: 60px;
+    height: 60px;
+  }
 }

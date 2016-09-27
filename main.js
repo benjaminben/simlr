@@ -1,5 +1,5 @@
-var ogPinPosition;
-var ogPinWidth = 150;
+var ogPinPosition,
+    ogPinWidth = 150;
 
 (function() {
     var throttle = function(type, name, obj) {
@@ -19,13 +19,15 @@ var ogPinWidth = 150;
     throttle ("scroll", "optimizedScroll");
 })();
 
-window.addEventListener("scroll", function() {
-    update();
-});
+window.addEventListener("scroll", update);
 
 function update() {
-    var scrollTop = $(window).scrollTop();
-    var scrollBottom = $(window).scrollTop() + $(window).height();
+    var scrollTop = $(window).scrollTop(),
+        scrollBottom = $(window).scrollTop() + $(window).height();
+
+    var joinUs = $('#joinUs'),
+        aboutSection = $("#aboutSection"),
+        geoSection = $("#geoSection");
 
     $("#joinUs").css("opacity",
         0 + ( scrollTop > 100 ? ((scrollTop - 100) / 100) : 0 )
@@ -39,12 +41,12 @@ function update() {
         1 - scrollTop / 100
     )
 
-    var afterTag1 = $("#tooFar").offset().top + $("#tooFar").height();
-    var afterTag2 = $("#tag").offset().top + $("#tag").height();
+    var afterTag1 = $("#tooFar").offset().top + $("#tooFar").height(),
+        afterTag2 = $("#tag").offset().top + $("#tag").height();
 
     var iconPassedTag1 = $("#icon").offset().top >=
-                        ($("#tooFar").offset().top + $("#tooFar").height());
-    var iconPassedTag2 = $("#icon").offset().top >=
+                        ($("#tooFar").offset().top + $("#tooFar").height()),
+        iconPassedTag2 = $("#icon").offset().top >=
                         ($("#tag").offset().top + $("#tag").height());
 
     if ( scrollTop < 1600 ) {
@@ -94,52 +96,52 @@ function update() {
     )
 
 
-    if ( isScrolledIn($("#aboutSection"), $("#joinUs")) ) {
-        $("#joinUs").css({
+    if ( isScrolledIn(aboutSection, joinUs) ) {
+        joinUs.css({
             "color": "#4657f2",
             "border": "1px solid #4657f2"
         }).on("mouseover", function() {
-            $("#joinUs").css({
+            joinUs.css({
                 "color": "white",
                 "border": "1px solid #4657f2",
                 "background": "#4657f2"
             })
         }).on("mouseleave", function() {
-            $("#joinUs").css({
+            joinUs.css({
                 "color": "#4657f2",
                 "border": "1px solid #4657f2",
                 "background": "rgba(0, 0, 0, 0)"
             })
         });
-    } else if ( isScrolledIn($("#geoSection"), $("#joinUs")) ) {
-        $("#joinUs").css({
+    } else if ( isScrolledIn(geoSection, joinUs) ) {
+        joinUs.css({
             "color": "#4657f2",
             "border": "1px solid #4657f2"
         }).on("mouseover", function() {
-            $("#joinUs").css({
+            joinUs.css({
                 "color": "white",
                 "border": "1px solid white",
                 "background": "#4657f2"
             })
         }).on("mouseleave", function() {
-            $("#joinUs").css({
+            joinUs.css({
                 "color": "#4657f2",
                 "border": "1px solid #4657f2",
                 "background": "rgba(0, 0, 0, 0)"
             })
         });
     } else {
-        $("#joinUs").css({
+        joinUs.css({
             "color": "white",
             "border": "1px solid white"
         }).on("mouseover", function() {
-            $("#joinUs").css({
+            joinUs.css({
                 "color": "#4657f2",
                 "border": "1px solid white",
                 "background": "white"
             })
         }).on("mouseleave", function() {
-            $("#joinUs").css({
+            joinUs.css({
                 "color": "white",
                 "border": "1px solid white",
                 "background": "rgba(70,87,242,0)"
@@ -156,11 +158,7 @@ function isScrolledIn(biggerThing, littleThing) {
   var biggerThingTop = biggerThing.offset().top;
   var biggerThingBottom = biggerThing.offset().top+biggerThing.height();
 
-  if (biggerThingTop < littleThingTop && biggerThingBottom > littleThingBottom){
-    return true
-  } else {
-    return false
-  }
+  return(biggerThingTop < littleThingTop && biggerThingBottom > littleThingBottom);
 }
 
 function isScrolledIntoWindow(thing) {
@@ -169,9 +167,28 @@ function isScrolledIntoWindow(thing) {
   var winTop = window.pageYOffset;
   var winBottom = window.pageYOffset+window.innerHeight;
 
-  if (winTop < thingTop && winBottom > thingBottom) {
-    return true
-  } else {
-    return false
-  }
+  return(winTop < thingTop && winBottom > thingBottom);
 }
+
+$(".button").on("click", function(){
+    var popOver = $("#popOver");
+    if ( popOver.hasClass("show") ) {
+        popOver.removeClass("show");
+        popOver.addClass("hide");
+        $('body').css({
+            "position" : "absolute",
+            "overflow" : "auto",
+        });
+        setTimeout(function(){
+            popOver.removeClass("hide")
+        },660)
+        return
+    }
+    popOver.addClass("show");
+    setTimeout(function(){
+        $('body').css({
+            "position" : "fixed",
+            "overflow" : "hidden",
+        });
+    },660)
+});
