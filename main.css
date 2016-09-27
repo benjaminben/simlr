@@ -196,6 +196,7 @@ mark {
 #phone {
   position: absolute;
   top: 100%;
+  left: 50%;
   transform: translate(-50%, 0);
   z-index: 0;
   transition: all 0.5s ease;
@@ -220,6 +221,7 @@ mark {
   flex-flow: column;
   background: white;
   height: 100vh;
+  max-height: 800px;
 }
 
 #geoContainer {

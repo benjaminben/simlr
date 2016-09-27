@@ -93,6 +93,7 @@ function update() {
         scrollTop > 3100 ? (70 + "%") : (100 + "%")
     )
 
+
     if ( isScrolledIn($("#aboutSection"), $("#joinUs")) ) {
         $("#joinUs").css({
             "color": "#4657f2",
